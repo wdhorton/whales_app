@@ -1,4 +1,6 @@
 require_relative '../../../rails_lite_final/myactiverecord/lib/base'
+require 'bcrypt'
+
 class User < MyActiveRecord::Base
   self.finalize!
 
@@ -6,7 +8,7 @@ class User < MyActiveRecord::Base
 
   def self.find_by_credentials(username, password)
     user = User.where(username: username).first
-    user && user.valid_password?(password) ? user ? nil
+    user && user.valid_password?(password) ? user : nil
   end
 
   def initialize(attrs)
@@ -25,7 +27,7 @@ class User < MyActiveRecord::Base
 
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64(16)
-    save!
+    save
     self.session_token
   end
 
