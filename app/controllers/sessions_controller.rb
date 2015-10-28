@@ -3,7 +3,6 @@ require '/Users/appacademy/desktop/Test/app/models/user.rb'
 
 class SessionsController < ApplicationController
 
-
   def new
    render :new
   end

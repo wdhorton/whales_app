@@ -1,4 +1,6 @@
 require_relative '../../../rails_lite_final/myactionpack2/lib/my_action_controller/base'
+require '/Users/appacademy/desktop/Test/app/models/user.rb'
+
 class ApplicationController < MyActionController::Base
 
   def login(user)
@@ -15,7 +17,7 @@ class ApplicationController < MyActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by_session_token(session[:session_token])
+    @current_user ||= User.where(session_token: session[:session_token]).first
   end
 
   def ensure_logged_in

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     # I know this is a major security issue, but I will implement strong params
     @user = User.new(params[:user])
 
+
     if @user.save
       login(@user)
       redirect_to '/posts'
