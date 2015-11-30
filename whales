@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative '../whales/whales'
+require_relative './routes'
+require_relative './config/database.rb'
+
+scripts(make_router)

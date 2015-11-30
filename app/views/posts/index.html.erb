@@ -1,0 +1,15 @@
+<form action="/session" method="post">
+  <input type='hidden' name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type='hidden' name="_method" value="delete">
+  <button>Log out</button>
+</form>
+
+<h1>Posts</h1>
+<p>Welcome, <%= current_user.username %>!</p>
+<a href="posts/new">Make new post!</a>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li><a href="posts/<%= post.id %>"><%= post.title %></a></li>
+  <% end %>
+</ul>

@@ -1,5 +1,5 @@
 require_relative './application_controller.rb'
-require '/Users/appacademy/desktop/Test/app/models/user.rb'
+require_relative '../models/user.rb'
 
 class SessionsController < ApplicationController
 
@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_credentials(
-      params[:user][:username],
-      params[:user][:password]
+      params[:user]["username"],
+      params[:user]["password"]
     )
 
     if @user

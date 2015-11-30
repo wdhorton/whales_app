@@ -1,6 +1,7 @@
-require_relative '../../../rails_lite_final/myactiverecord/lib/base'
+require_relative '../../../whales/whales_orm/lib/base'
+require_relative '../../config/database.rb'
 
-class Post < MyActiveRecord::Base
+class Post < WhalesORM::Base
   belongs_to :user
   self.finalize!
 end

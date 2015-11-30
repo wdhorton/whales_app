@@ -1,5 +1,5 @@
 require_relative './application_controller.rb'
-require '/Users/appacademy/desktop/Test/app/models/user.rb'
+require_relative '../models/user.rb'
 
 class UsersController < ApplicationController
 
@@ -8,9 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    # I know this is a major security issue, but I will implement strong params
-    @user = User.new(params[:user])
-
+    @user = User.new(user_params)
 
     if @user.save
       login(@user)
@@ -19,6 +17,12 @@ class UsersController < ApplicationController
       flash.now[:errors] = ["Couldn't create new user."]
       render :new
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :password)
   end
 
 end

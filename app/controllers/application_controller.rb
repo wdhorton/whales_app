@@ -1,7 +1,8 @@
-require_relative '../../../rails_lite_final/myactionpack2/lib/my_action_controller/base'
-require '/Users/appacademy/desktop/Test/app/models/user.rb'
+require_relative '../../../whales/whales_actions/lib/whales_controller/base'
+require_relative '../models/user.rb'
+require_relative '../../config/database.rb'
 
-class ApplicationController < MyActionController::Base
+class ApplicationController < WhalesController::Base
 
   def login(user)
     session[:session_token] = user.reset_session_token!
@@ -22,8 +23,12 @@ class ApplicationController < MyActionController::Base
 
   def ensure_logged_in
     unless logged_in?
-      redirect_to new_session_url
+      redirect_to '/sessions/new'
     end
   end
 
+  def render(template_name)
+    file_location = __FILE__
+    super(template_name, file_location)
+  end
 end

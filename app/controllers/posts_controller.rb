@@ -1,6 +1,6 @@
 require_relative 'application_controller'
-require '/Users/appacademy/desktop/Test/app/models/user.rb'
-require '/Users/appacademy/desktop/Test/app/models/post.rb'
+require_relative '../models/user.rb'
+require_relative '../models/post.rb'
 
 class PostsController < ApplicationController
 
@@ -20,10 +20,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
-    @post.user = current_user
+    @post.user_id = current_user.id
 
     if @post.save
-      redirect_to 'posts/#{@post.id}'
+      redirect_to "posts/#{@post.id}"
     else
       flash.now[:errors] = ["Unable to make your post"]
       render :new
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update(params[:post])
-      redirect_to 'posts/#{@post.id}'
+      redirect_to "posts/#{@post.id}"
     else
       flash.now[:errors] = @post.errors.full_messages
       render :edit

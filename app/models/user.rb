@@ -1,7 +1,8 @@
-require_relative '../../../rails_lite_final/myactiverecord/lib/base'
+require_relative '../../../whales/whales_orm/lib/base'
+require_relative '../../config/database.rb'
 require 'bcrypt'
 
-class User < MyActiveRecord::Base
+class User < WhalesORM::Base
   self.finalize!
 
   has_many :posts
