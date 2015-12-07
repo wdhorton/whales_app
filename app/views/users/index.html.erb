@@ -30,9 +30,9 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="/">Home</a>
+          <a class="blog-nav-item" href="/posts">Home</a>
           <a class="blog-nav-item" href="/users/<%= current_user.id %>">My Posts</a>
-          <a class="blog-nav-item" href="/users">Users</a>
+          <a class="blog-nav-item active" href="/users">Users</a>
           <a class="blog-nav-item" href="/posts/new">New Post</a>
           <form action="/session" method="post">
             <input type='hidden' name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -56,7 +56,9 @@
 
           <% @users.each do |user| %>
 
-            <a href="/users/<%= user.id %>"><%= user.username %>
+          <div class="blog-post">
+            <h2 class="blog-post-title"><a href="/users/<%= user.id %>"><%= user.username %></a></h2>
+          </div>
 
           <% end %>
 
