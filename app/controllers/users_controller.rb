@@ -22,6 +22,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    path = File.expand_path("../../assets/stylesheets/post_index.css", __FILE__)
+    @css = File.read(path)
+
+    @users = User.all
+    render :index
+  end
+
+  def show
+    path = File.expand_path("../../assets/stylesheets/post_index.css", __FILE__)
+    @css = File.read(path)
+
+    @user = User.find(params[:id])
+    render :show
+  end
+
   private
 
   def user_params

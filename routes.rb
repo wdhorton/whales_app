@@ -13,10 +13,11 @@ def make_router
     post Regexp.new("^/session$"), SessionsController, :create
     delete Regexp.new("^/session$"), SessionsController, :destroy
     get Regexp.new("^/posts$"), PostsController, :index
+    get Regexp.new("^/users$"), UsersController, :index
     get Regexp.new("^/$"), SessionsController, :new
     get Regexp.new("^/posts/new$"), PostsController, :new
     post Regexp.new("^/posts$"), PostsController, :create
-    get Regexp.new("^/posts/(?<id>\\d+)$"), PostsController, :show
+    get Regexp.new("^/users/(?<id>\\d+)$"), UsersController, :show
   end
 
   router

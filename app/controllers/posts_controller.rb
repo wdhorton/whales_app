@@ -12,12 +12,10 @@ class PostsController < ApplicationController
     render :index
   end
 
-  def show
-    @post = Post.find(params[:id])
-    render :show
-  end
-
   def new
+    path = File.expand_path("../../assets/stylesheets/post_index.css", __FILE__)
+    @css = File.read(path)
+
     render :new
   end
 
@@ -26,7 +24,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
-      redirect_to "posts/#{@post.id}"
+      redirect_to "users/#{@post.user_id}"
     else
       flash.now[:errors] = ["Unable to make your post"]
       render :new

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>New Post</title>
+    <title>Home</title>
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
@@ -31,9 +31,9 @@
       <div class="container">
         <nav class="blog-nav">
           <a class="blog-nav-item" href="/">Home</a>
-          <a class="blog-nav-item" href="/users/<%= current_user.id %>">My Posts</a>
+          <a class="blog-nav-item <%= "active" if current_user == @user %>" href="/users/<%= current_user.id %>">My Posts</a>
           <a class="blog-nav-item" href="/users">Users</a>
-          <a class="blog-nav-item active" href="/posts/new">New Post</a>
+          <a class="blog-nav-item" href="/posts/new">New Post</a>
           <form action="/session" method="post">
             <input type='hidden' name="authenticity_token" value="<%= form_authenticity_token %>">
             <input type='hidden' name="_method" value="delete">
@@ -46,27 +46,22 @@
     <div class="container">
 
       <div class="blog-header">
-        <h1 class="blog-title">Make a new post!</h1>
+        <h1 class="blog-title"><%= @user.username %>'s Posts</h1>
       </div>
 
       <div class="row">
 
         <div class="col-sm-8 blog-main">
-          <form action='/posts' method="post">
-            <input type='hidden' name="authenticity_token" value="<%= form_authenticity_token %>">
 
-            <div class="form-group">
-              <label for="inputTitle">Title</label>
-              <input type="text" class="form-control" id="inputTitle" name="post[title]" placeholder="Title" autofocus>
+          <% @user.posts.each do |post| %>
+
+            <div class="blog-post">
+              <h2 class="blog-post-title"><%= post.title %></h2>
+              <p><%= post.body %></p>
             </div>
 
-            <div class="form-group">
-              <label for="inputBody">Body</label>
-              <textarea class="form-control" name="post[body]" id="inputBody" placeholder="My post is about..."></textarea>
-            </div>
+          <% end %>
 
-            <button class="btn btn-primary" type="submit">Submit</submit>
-          </form>
         </div>
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
