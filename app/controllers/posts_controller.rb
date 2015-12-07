@@ -6,6 +6,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    path = File.expand_path("../../assets/stylesheets/post_index.css", __FILE__)
+    @css = File.read(path)
+
     render :index
   end
 

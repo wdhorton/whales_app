@@ -4,6 +4,9 @@ require_relative '../models/user.rb'
 class UsersController < ApplicationController
 
   def new
+    path = File.expand_path("../../assets/stylesheets/signin.css", __FILE__)
+    @css = File.read(path)
+
     render :new
   end
 
