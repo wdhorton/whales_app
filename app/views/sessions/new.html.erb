@@ -14,6 +14,11 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
+    <!-- Custom styles -->
+    <style>
+      <%= @css %>
+    </style>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -24,21 +29,19 @@
   <body>
 
     <div class="container">
-      <h1>Sign In!</h1>
-      <p>or <a href="/users/new">sign up</a></p>
 
-      <form action='/session' method='POST'>
+      <form class="form-signin" action='/session' method='POST'>
+        <h2 class="form-signin-heading">Sign In! (or <a href="/users/new">sign up</a>)</h2>
+
         <input type='hidden' name="authenticity_token" value="<%= form_authenticity_token %>">
 
-        <label>Username
-          <input type="text" name="user[username]">
-        </label><br>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="user[username]" required autofocus>
 
-        <label>Password
-          <input type="password" name="user[password]">
-        </label>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="user[password]" required>
 
-        <button>Sign In</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
       </form>
     </div>
 
