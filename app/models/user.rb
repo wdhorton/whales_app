@@ -3,6 +3,9 @@ require_relative '../../config/database.rb'
 require 'bcrypt'
 
 class User < WhalesORM::Base
+
+  attr_reader :password
+  
   self.finalize!
 
   has_many :posts
