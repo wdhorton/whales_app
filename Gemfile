@@ -6,3 +6,4 @@ gem "activesupport"
 gem 'sqlite3'
 gem 'bcrypt'
 gem 'guard-rspec', require: false
+gem 'pry'
