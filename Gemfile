@@ -10,3 +10,4 @@ gem 'pry'
 gem 'capybara'
 gem "capybara-webkit"
 gem "launchy"
+gem "whales"
