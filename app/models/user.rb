@@ -1,4 +1,4 @@
-require_relative '../../../whales/whales_orm/lib/base'
+require 'whales_orm'
 require_relative '../../config/database.rb'
 require 'bcrypt'
 
