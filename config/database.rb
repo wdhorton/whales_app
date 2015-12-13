@@ -1,5 +1,3 @@
-require_relative '../../whales/whales_orm/lib/db_connection.rb'
-
 # https://tomafro.net/2010/01/tip-relative-paths-with-file-expand-path
 ROOT_FOLDER = File.join(File.dirname(__FILE__), '../db')
 

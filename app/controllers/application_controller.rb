@@ -1,6 +1,4 @@
-require_relative 'whales_actions'
-require_relative '../models/user.rb'
-require_relative '../../config/database.rb'
+require_relative "../../../whales/whales_actions/lib/whales_controller/base"
 
 class ApplicationController < WhalesController::Base
 

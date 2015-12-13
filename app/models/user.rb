@@ -1,5 +1,5 @@
-require 'whales_orm'
 require_relative '../../config/database.rb'
+require 'whales_orm'
 require 'bcrypt'
 
 class User < WhalesORM::Base

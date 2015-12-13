@@ -1,4 +1,4 @@
-require_relative '../whales/whales_actions/lib/whales_controller/base'
+require_relative '../whales/whales_actions/lib/whales_dispatch/router'
 require_relative 'app/controllers/users_controller'
 require_relative 'app/controllers/sessions_controller'
 require_relative 'app/controllers/posts_controller'

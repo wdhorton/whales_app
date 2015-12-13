@@ -1,5 +1,5 @@
-require_relative './application_controller.rb'
-require_relative '../models/user.rb'
+require_relative './application_controller'
+require_relative '../models/user'
 
 class UsersController < ApplicationController
 
